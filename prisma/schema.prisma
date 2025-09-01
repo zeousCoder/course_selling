@@ -32,6 +32,8 @@ model User {
   banExpires    DateTime?
   sessions      Session[]
   accounts      Account[]
+  Order         Order[]
+  Payment       Payment[]
 
   @@unique([email])
   @@map("users")
@@ -83,7 +85,6 @@ model Verification {
   @@map("verifications")
 }
 
-
 model ContactForm {
   id        String   @id @default(cuid())
   name      String
@@ -93,4 +94,62 @@ model ContactForm {
   createdAt DateTime @default(now())
 
   @@map("contact-form")
+}
+
+enum OrderStatus {
+  CREATED
+  PENDING
+  PAID
+  FAILED
+  CANCELED
+}
+
+enum PaymentStatus {
+  CREATED
+  AUTHORIZED
+  CAPTURED
+  FAILED
+  REFUNDED
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  userId          String
+  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan            String
+  amount          Int
+  currency        String      @default("INR")
+  status          OrderStatus @default(PENDING)
+  razorpayOrderId String?     @unique
+  receipt         String?     @unique
+  notes           Json?
+  payments        Payment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("orders")
+}
+
+model Payment {
+  id       String        @id @default(cuid())
+  orderId  String
+  order    Order         @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  userId   String
+  user     User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  amount   Int
+  currency String        @default("INR")
+  status   PaymentStatus @default(CREATED)
+
+  razorpayPaymentId String? @unique
+  razorpaySignature String?
+  method            String?
+  email             String?
+  contact           String?
+  rawResponse       Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("payments")
 }
