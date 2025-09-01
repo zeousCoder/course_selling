@@ -36,7 +36,7 @@ export default function ProjectsSection() {
     return (
         <section
             className="
-        relative w-full mx-auto border-0 shadow-2xl overflow-hidden
+        relative  w-full mx-auto border-0 shadow-2xl overflow-hidden
         bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]
         p-12
       "
@@ -48,18 +48,18 @@ export default function ProjectsSection() {
                 <CardTitle className="text-4xl font-bold text-white">
                     Projects You'll Build
                 </CardTitle>
-                <p className="mt-3 text-gray-300 max-w-2xl mx-auto text-lg">
+                <p className="mt-3 text-gray-300 max-w-3xl mx-auto text-lg">
                     Apply your learning with real-world, hands-on projects.
                 </p>
             </CardHeader>
 
-            <CardContent className="relative z-10 mt-10">
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3  mx-auto">
+            <CardContent className="relative w-full z-10 mt-10">
+                <div className="grid gap-8 grid-cols-1 lg:grid-cols-3  mx-auto">
                     {projects.map((proj, i) => (
                         <div
                             key={i}
                             className={`
-                p-6 rounded-xl border shadow-lg transition-transform
+                p-6 w-full rounded-xl border shadow-lg transition-transform
                 bg-white/5 backdrop-blur-sm hover:scale-105
                 ${proj.highlight ? "border-yellow-400/70 shadow-yellow-500/30" : "border-white/10"}
               `}

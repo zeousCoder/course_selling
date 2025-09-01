@@ -1,5 +1,6 @@
 
 import Pricing from '@/components/home/PaymentCard'
+import { Metadata } from 'next'
 
 import React from 'react'
 
@@ -9,4 +10,9 @@ export default function PricingPage() {
             <Pricing />
         </div>
     )
+}
+
+export const metadata: Metadata = {
+    title: "Pricing",
+    description: "Projects page",
 }

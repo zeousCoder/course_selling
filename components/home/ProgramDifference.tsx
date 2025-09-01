@@ -5,16 +5,16 @@ export default function ProgramDifference() {
   return (
     <Card
       className="
-        container mx-auto border-0 shadow-2xl rounded-2xl overflow-hidden
+        container mx-auto border-0 shadow-2xl lg:rounded-2xl rounded-none overflow-hidden
         bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]
         p-12 
       "
     >
       <CardHeader className="text-center">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
+        <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-white">
           What Makes This Program <span className="text-yellow-400">Different?</span>
         </h2>
-        <p className="mt-3 text-gray-300 max-w-2xl mx-auto text-lg">
+        <p className="mt-3 text-gray-300 mx-auto text-base">
           Most courses only teach formulas. <br /> This program gives you real-world skills and tools.
         </p>
       </CardHeader>

@@ -52,7 +52,7 @@ export default function Pricing() {
     const theme = useTheme();
     const shadowColor = theme.resolvedTheme === "dark" ? "white" : "black";
     return (
-        <section className="container mx-auto ">
+        <section className="container mx-auto  ">
             {/* <h2 className="text-4xl font-bold text-center  mb-12">
                 Pricing & Enrollment
             </h2> */}
@@ -62,12 +62,12 @@ export default function Pricing() {
                     Enrollment
                 </LineShadowText>
             </h1>
-            <div className="grid gap-8 lg:grid-cols-3  grid-cols-1mx-auto">
+            <div className="grid gap-8 lg:grid-cols-3  grid-cols-1 mx-auto">
                 {plans.map((plan, idx) => (
                     <Card
                         key={idx}
                         className={`
-              relative border-0 rounded-2xl shadow-2xl overflow-hidden
+              relative border-0 lg:rounded-2xl rounded-none shadow-2xl overflow-hidden
               bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]
               text-white flex flex-col justify-between
               ${plan.highlight ? "scale-105 ring-2 ring-yellow-400" : ""}

@@ -8,7 +8,7 @@ export default function InstructorSection() {
     return (
         <Card
             className="
-        relative container mx-auto border-0 shadow-2xl rounded-2xl overflow-hidden
+        relative container mx-auto border-0 shadow-2xl lg:rounded-2xl rounded-none overflow-hidden
         bg-gradient-to-br from-[#1e3c72] via-[#2a5298] to-[#000000]
         py-20
       "
