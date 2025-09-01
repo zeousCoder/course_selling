@@ -19,6 +19,7 @@ export default function Header() {
     const isDashboard = pathname.startsWith("/dashboard");
 
     const navLinks = [
+        { name: "Home", href: "/" },
         { name: "Pricing", href: "/pricing" },
         { name: "Projects", href: "/projects" },
         { name: "Contact", href: "/contact" },
@@ -29,7 +30,7 @@ export default function Header() {
     return (
         <>
             {isDashboard ? (
-                <></>
+                null
             ) : (
                 <header className="fixed top-4 inset-x-0 max-w-4xl mx-auto z-50 px-4">
                     <div
