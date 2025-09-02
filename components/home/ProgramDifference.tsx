@@ -38,7 +38,7 @@ export default function ProgramDifference() {
         <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-white">
           What Makes This Program <span className="text-yellow-400">Different?</span>
         </h2>
-        <p className="text-gray-300 text-base max-w-xl mx-auto">
+        <p className="text-gray-300 text-base  mx-auto">
           Most courses only teach formulas. <br /> This program gives you real-world skills and tools.
         </p>
       </CardHeader>
