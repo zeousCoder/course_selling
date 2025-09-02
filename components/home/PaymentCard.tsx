@@ -68,7 +68,7 @@ export default function Pricing() {
           <Card
             key={idx}
             className={`
-              relative border-0 lg:rounded-2xl rounded-none shadow-2xl overflow-hidden
+              relative border-0 rounded-2xl  shadow-2xl overflow-hidden
               bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]
               text-white flex flex-col justify-between
               ${plan.highlight ? "scale-105 ring-2 ring-yellow-400" : ""}

@@ -11,7 +11,7 @@ import React from 'react'
 
 export default function Home() {
   return (
-    <div className='flex flex-col gap-20 mx-auto justify-center items-center  pt-26 pb-10'>
+    <div className='flex flex-col gap-20 mx-auto justify-center items-center px-4 pt-26 pb-10'>
       <Banner />
       <ProjectsSection />
       <WhoIsThisFor />

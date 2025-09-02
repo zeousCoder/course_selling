@@ -5,40 +5,65 @@ const reviews = [
     {
         name: "Jack",
         username: "@jack",
-        body: "I've never seen anything like this before. It's amazing. I love it.",
+        body: "I've never seen anything like this before. It completely changed the way I work. Highly recommend!",
         img: "https://avatar.vercel.sh/jack",
     },
     {
         name: "Jill",
         username: "@jill",
-        body: "I don't know what to say. I'm speechless. This is amazing.",
+        body: "Super smooth experience! I saved so much time and effort, it almost feels like cheating.",
         img: "https://avatar.vercel.sh/jill",
     },
     {
         name: "John",
         username: "@john",
-        body: "I'm at a loss for words. This is amazing. I love it.",
+        body: "At first I was skeptical, but now I can’t imagine going back. This is a total game-changer.",
         img: "https://avatar.vercel.sh/john",
     },
     {
         name: "Jane",
         username: "@jane",
-        body: "I'm at a loss for words. This is amazing. I love it.",
+        body: "The design is beautiful, the performance is flawless, and it actually delivers on its promises.",
         img: "https://avatar.vercel.sh/jane",
     },
     {
         name: "Jenny",
         username: "@jenny",
-        body: "I'm at a loss for words. This is amazing. I love it.",
+        body: "I showed this to my team and everyone was blown away. Productivity is up big time.",
         img: "https://avatar.vercel.sh/jenny",
     },
     {
         name: "James",
         username: "@james",
-        body: "I'm at a loss for words. This is amazing. I love it.",
+        body: "I’ve tried a lot of tools before, but this one finally feels like it was built with me in mind.",
         img: "https://avatar.vercel.sh/james",
     },
+    {
+        name: "Sophia",
+        username: "@sophia",
+        body: "It’s intuitive, fast, and fun to use. Honestly, I look forward to using it every day.",
+        img: "https://avatar.vercel.sh/sophia",
+    },
+    {
+        name: "Liam",
+        username: "@liam",
+        body: "The support team is top-notch. Got help in minutes and was back on track instantly.",
+        img: "https://avatar.vercel.sh/liam",
+    },
+    {
+        name: "Olivia",
+        username: "@olivia",
+        body: "Finally, a product that actually makes my job easier instead of more complicated!",
+        img: "https://avatar.vercel.sh/olivia",
+    },
+    {
+        name: "Noah",
+        username: "@noah",
+        body: "I recommend this to all my colleagues. It’s rare to find something this useful and reliable.",
+        img: "https://avatar.vercel.sh/noah",
+    },
 ];
+
 
 const firstRow = reviews.slice(0, reviews.length / 2);
 const secondRow = reviews.slice(reviews.length / 2);
