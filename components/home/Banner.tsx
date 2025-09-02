@@ -7,7 +7,7 @@ export default function Banner() {
   return (
     <section
       className="
-        w-full mx-auto text-center border-0 shadow-2xl  overflow-hidden
+      container rounded-xl mx-auto text-center border-0 shadow-2xl  overflow-hidden
         bg-gradient-to-br from-[#1e3c72] via-[#2a5298] to-[#000000] 
         py-20
       "

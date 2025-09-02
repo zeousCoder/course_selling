@@ -36,7 +36,7 @@ export default function ProjectsSection() {
     return (
         <section
             className="
-        relative  w-full mx-auto border-0 shadow-2xl overflow-hidden
+        relative  container rounded-xl mx-auto border-0 shadow-2xl overflow-hidden
         bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]
         p-12
       "
@@ -54,7 +54,7 @@ export default function ProjectsSection() {
             </CardHeader>
 
             <CardContent className="relative w-full z-10 mt-10">
-                <div className="grid gap-8 grid-cols-1 lg:grid-cols-3  mx-auto">
+                <div className="grid gap-8 grid-cols-1 lg:grid-cols-3 container mx-auto">
                     {projects.map((proj, i) => (
                         <div
                             key={i}

@@ -3,7 +3,7 @@ import { BoxReveal } from "@/components/magicui/box-reveal";
 
 export function BoxRevealDemo() {
     return (
-        <div className="size-full px-4 flex flex-col w-full items-center justify-center overflow-hidden pt-8">
+        <div className="size-full px-4 flex flex-col container rounded-xl items-center justify-center overflow-hidden pt-8">
             <BoxReveal boxColor={"#5046e6"} duration={0.5}>
                 <p className="lg:text-[3.5rem] text-3xl font-semibold">
                     100% Risk-Free Guarantee
