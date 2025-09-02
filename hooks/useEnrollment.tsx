@@ -55,6 +55,6 @@ export function useEnrollments() {
     loadingData,
     error,
     refetch: fetchItems,
-    setItems, // keep this if you want manual updates
+    setItems, 
   };
 }
