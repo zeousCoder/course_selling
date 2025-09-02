@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 
 // shadcn components
 import {
@@ -25,23 +25,8 @@ import {
   BadgeCheck,
 } from "lucide-react";
 
-// FIX: import the correct hook file that lists enrollments
-import { useEnrollments } from "@/hooks/useEnrollment";
-
-type OrderStatus = "CREATED" | "PENDING" | "PAID" | "FAILED" | "CANCELED";
-
-type EnrollmentRow = {
-  id: string;
-  userId: string;
-  plan: string;
-  orderId: string;
-  createdAt: string;
-  order?: {
-    status: OrderStatus;
-    amount: number;
-    currency: string;
-  } | null;
-};
+// ✅ FIX: correct import (plural)
+import { useEnrollments, EnrollmentRow } from "@/hooks/useEnrollment";
 
 function formatAmount(amountPaise?: number, currency: string = "INR") {
   if (typeof amountPaise !== "number") return "—";
@@ -52,7 +37,7 @@ function formatAmount(amountPaise?: number, currency: string = "INR") {
 }
 
 export default function EnrollmentListTab() {
-  const { items, loadingData, error, fetchItems } = useEnrollments();
+  const { items, loadingData, error, refetch } = useEnrollments();
 
   const total = items.length;
   const recent = items.filter((r) => {
@@ -61,11 +46,6 @@ export default function EnrollmentListTab() {
     weekAgo.setDate(weekAgo.getDate() - 7);
     return dt >= weekAgo;
   }).length;
-  const userIds = items.map((item) => item.userId);
-
-  useEffect(() => {
-    fetchItems();
-  }, [fetchItems]);
 
   return (
     <div className="w-full space-y-6 p-3">
@@ -90,7 +70,7 @@ export default function EnrollmentListTab() {
             New: {recent}
           </Badge>
           <Button
-            onClick={fetchItems}
+            onClick={refetch}
             disabled={loadingData}
             variant="outline"
             size="sm"
@@ -107,7 +87,7 @@ export default function EnrollmentListTab() {
 
       {/* Summary */}
       {items.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3  gap-4">
           <Card>
             <CardContent className="flex items-center justify-between p-4">
               <div>
@@ -157,7 +137,7 @@ export default function EnrollmentListTab() {
             <div className="text-center py-4 text-red-600">
               <p>{error}</p>
               <Button
-                onClick={fetchItems}
+                onClick={refetch}
                 variant="outline"
                 size="sm"
                 className="mt-2"
@@ -179,18 +159,20 @@ export default function EnrollmentListTab() {
               <p className="text-muted-foreground">
                 Purchased bundles will appear here after successful checkout.
               </p>
-              <Button onClick={fetchItems} variant="outline" className="mt-4">
+              <Button onClick={refetch} variant="outline" className="mt-4">
                 <RefreshCw className="w-4 h-4 mr-2" />
                 Refresh List
               </Button>
             </div>
           ) : (
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto min-h-screen overflow-y-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
                     <TableHead className="w-[140px]">Enrollment ID</TableHead>
-                    <TableHead className="hidden md:table-cell">User ID</TableHead>
+                    <TableHead className="hidden md:table-cell">
+                      User ID
+                    </TableHead>
                     <TableHead>Plan</TableHead>
                     <TableHead>Order</TableHead>
                     <TableHead className="hidden md:table-cell">
@@ -220,8 +202,8 @@ export default function EnrollmentListTab() {
                       e.order?.status === "PAID"
                         ? "default"
                         : e.order?.status === "FAILED"
-                        ? "destructive"
-                        : "secondary";
+                          ? "destructive"
+                          : "secondary";
 
                     return (
                       <TableRow key={e.id} className="hover:bg-muted/50">

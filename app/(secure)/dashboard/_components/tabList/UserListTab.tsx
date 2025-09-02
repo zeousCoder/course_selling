@@ -117,7 +117,7 @@ export default function UserListTab() {
                         </CardContent>
                     </Card>
 
-                    <Card>
+                    <Card className="">
                         <CardContent className="flex items-center justify-between p-4">
                             <div>
                                 <p className="text-sm text-muted-foreground">Growth Rate</p>
@@ -135,7 +135,7 @@ export default function UserListTab() {
             )}
 
             {/* Content */}
-            <Card>
+            <Card className="min-h-screen overflow-y-auto">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                         <UserCheck className="w-5 h-5" />

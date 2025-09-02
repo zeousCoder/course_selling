@@ -41,6 +41,9 @@ export default function OrderListTab() {
   const total = orders.length;
   const paid = orders.filter((o) => o.status === "PAID").length;
   const failed = orders.filter((o) => o.status === "FAILED").length;
+  const created = orders.filter((o) => o.status === "CREATED").length;
+  const canceled = orders.filter((o) => o.status === "CANCELED").length;
+  const pending = orders.filter((o) => o.status === "PENDING").length;
   const recent = orders.filter((o) => {
     const dt = new Date(o.createdAt);
     const weekAgo = new Date();
@@ -72,11 +75,27 @@ export default function OrderListTab() {
           </Badge>
           <Badge variant="outline" className="flex items-center gap-1">
             <BadgeAlert className="w-3 h-3" />
+            Created: {created}
+          </Badge>
+          <Badge variant="outline" className="flex items-center gap-1">
+            <BadgeAlert className="w-3 h-3" />
             Failed: {failed}
           </Badge>
           <Badge variant="outline" className="flex items-center gap-1">
+            <BadgeAlert className="w-3 h-3" />
+            Canceled: {canceled}
+          </Badge>
+          <Badge variant="outline" className="flex items-center gap-1">
+            <BadgeAlert className="w-3 h-3" />
+            Pending: {pending}
+          </Badge>
+          {/* <Badge variant="outline" className="flex items-center gap-1">
             <Calendar className="w-3 h-3" />
             New: {recent}
+          </Badge> */}
+          <Badge variant="outline" className="flex items-center gap-1">
+            <Calendar className="w-3 h-3" />
+            Total: {total}
           </Badge>
           <Button
             onClick={() => fetchOrders()}
@@ -95,7 +114,7 @@ export default function OrderListTab() {
       </div>
 
       {/* Table */}
-      <Card>
+      <Card className="min-h-screen overflow-y-auto">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Receipt className="w-5 h-5" />
@@ -173,8 +192,8 @@ export default function OrderListTab() {
                       o.status === "PAID"
                         ? "default"
                         : o.status === "FAILED"
-                        ? "destructive"
-                        : "secondary";
+                          ? "destructive"
+                          : "secondary";
                     const lastPayment = o.payments;
 
                     return (
@@ -221,10 +240,9 @@ export default function OrderListTab() {
                               {lastPayment[lastPayment.length - 1]?.status}
                               {lastPayment[lastPayment.length - 1]
                                 ?.razorpayPaymentId
-                                ? ` • ${
-                                    lastPayment[lastPayment.length - 1]
-                                      ?.razorpayPaymentId
-                                  }`
+                                ? ` • ${lastPayment[lastPayment.length - 1]
+                                  ?.razorpayPaymentId
+                                }`
                                 : ""}
                             </div>
                           )}

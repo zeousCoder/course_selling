@@ -90,7 +90,7 @@ export default function PaymentListTab() {
       </div>
 
       {/* Table card */}
-      <Card>
+      <Card className="min-h-screen overflow-y-auto">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <CreditCard className="w-5 h-5" />
