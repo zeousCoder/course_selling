@@ -5,6 +5,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { SmoothCursor } from "@/components/ui/smooth-cursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
         >
           <Header />
           {children}
+          <SmoothCursor />
           <Toaster richColors position="top-center" />
           <Footer />
         </ThemeProvider>

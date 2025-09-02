@@ -46,7 +46,7 @@ function CheckoutButton({
       if (owned) {
         toast.info("Already purchased", {
           description: "This bundle is already active on the account.",
-        }); // [2]
+        });
         return;
       }
       setLoading(true);
@@ -61,7 +61,7 @@ function CheckoutButton({
           setOwned(true);
           toast.info("Already purchased", {
             description: "Cannot buy the same bundle twice.",
-          }); // [2]
+          });
           setLoading(false);
           return;
         }
@@ -78,7 +78,7 @@ function CheckoutButton({
       if (res.status === 401) {
         toast.error("Sign in required", {
           description: "Please sign in to continue checkout.",
-        }); // [2]
+        });
         setLoading(false);
         return;
       }
@@ -86,7 +86,7 @@ function CheckoutButton({
         setOwned(true);
         toast.info("Already purchased", {
           description: "This plan is already active.",
-        }); // [2]
+        });
         setLoading(false);
         return;
       }
@@ -130,11 +130,11 @@ function CheckoutButton({
               setOwned(true);
               toast.success("Payment successful", {
                 description: "Access granted to your bundle.",
-              }); // [2]
+              });
             } else {
               toast.error("Verification failed", {
                 description: error || "Could not verify payment.",
-              }); // [2]
+              });
             }
           } finally {
             setLoading(false);
@@ -145,7 +145,7 @@ function CheckoutButton({
             await cancel("user_dismissed");
             toast.message("Checkout canceled", {
               description: "No charges were made.",
-            }); // [2]
+            });
             setLoading(false);
           },
         },
@@ -156,14 +156,14 @@ function CheckoutButton({
         await cancel(err?.error?.description || "payment_failed");
         toast.error("Payment failed", {
           description: "Try another method or card and attempt again.",
-        }); // [2]
+        });
         setLoading(false);
       });
       rzp.open();
     } catch (e: any) {
       toast.error("Checkout error", {
         description: e?.message || "Could not start checkout.",
-      }); // [2]
+      });
       setLoading(false);
     }
   };
