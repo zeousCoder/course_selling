@@ -28,6 +28,7 @@ import UserListTab from "./tabList/UserListTab";
 import StatsTab from "./tabList/StatsTab";
 import PaymentListTab from "./tabList/PaymentListTab";
 import OrderListTab from "./tabList/OrderListTab";
+import EnrollmentListTab from "./tabList/EnrollmentListTab";
 
 export default function Sidebar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -64,16 +65,16 @@ export default function Sidebar() {
       content: <StatsTab />,
     },
     {
-      value: "payment",
-      label: "Payment Status",
-      icon: <DollarSign className="w-4 h-4" />,
-      content: <PaymentListTab />,
-    },
-    {
       value: "users",
       label: "Users",
       icon: <User className="w-4 h-4" />,
       content: <UserListTab />,
+    },
+    {
+      value: "payment",
+      label: "Payment Status",
+      icon: <DollarSign className="w-4 h-4" />,
+      content: <PaymentListTab />,
     },
     {
       value: "order",
@@ -81,12 +82,12 @@ export default function Sidebar() {
       icon: <ListOrdered className="w-4 h-4" />,
       content: <OrderListTab />,
     },
-    // {
-    //     value: "project-management",
-    //     label: "Project Management",
-    //     icon: <Projector className="w-4 h-4" />,
-    //     content: <ProjectManagementTab />,
-    // },
+    {
+      value: "enrollment",
+      label: "Enrollment",
+      icon: <Projector className="w-4 h-4" />,
+      content: <EnrollmentListTab />,
+    },
     // {
     //     value: "resume",
     //     label: "Resume Updater",

@@ -25,13 +25,26 @@ export async function POST(req: NextRequest) {
       plan: "basic" | "pro" | "premium";
       prefill?: { name?: string; email?: string; contact?: string };
     };
+
     const amount = PLAN_AMOUNT[plan];
     if (!amount)
       return NextResponse.json({ error: "Invalid plan" }, { status: 400 });
 
+    // 0) Enrollment guard: block duplicate purchases
+    const existingEnrollment = await prisma.enrollment.findUnique({
+      where: { userId_plan: { userId, plan } },
+      select: { id: true },
+    });
+    if (existingEnrollment) {
+      return NextResponse.json(
+        { error: "Already purchased this plan." },
+        { status: 409 }
+      );
+    }
+
     const receipt = `rcpt_${plan}_${Date.now()}`;
 
-    // Create local order
+    // 1) Create local order
     const order = await prisma.order.create({
       data: {
         plan,
@@ -44,7 +57,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // Create Razorpay order
+    // 2) Create Razorpay order (amount in paise)
     const rzpOrder = await razorpay.orders.create({
       amount,
       currency: "INR",
@@ -52,7 +65,7 @@ export async function POST(req: NextRequest) {
       notes: { plan, userId },
     });
 
-    // Persist RZP id + create payment in one transaction
+    // 3) Persist RZP id + create initial Payment
     await prisma.$transaction([
       prisma.order.update({
         where: { id: order.id },
