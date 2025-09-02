@@ -22,7 +22,7 @@ export default function Header() {
         { name: "Home", href: "/" },
         { name: "Pricing", href: "/pricing" },
         { name: "Projects", href: "/projects" },
-        { name: "Contact", href: "/contact" },
+        // { name: "Contact", href: "/contact" },
     ];
 
     const isActiveLink = (href: string) => pathname === href;

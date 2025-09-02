@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useContactForm } from "@/hooks/useContactForm";
 import { ContactFormChart } from "../ContactFormChart";
 import { UserChart } from "../UserChart";
+import { OrderStatusChart } from "../OrderStatus";
 
 export default function StatsTab() {
     return (
@@ -27,7 +28,8 @@ export default function StatsTab() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
                 <UserChart />
-                <ContactFormChart />
+                <OrderStatusChart />
+                {/* <ContactFormChart /> */}
             </div>
         </div>
     );

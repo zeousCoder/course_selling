@@ -51,7 +51,8 @@ export default function Footer() {
 
   const quickLinks = [
     { name: "Pricing", href: "/pricing" },
-    { name: "Contact", href: "/contact" },
+    { name: "Projects", href: "/projects" },
+    // { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -109,7 +110,7 @@ export default function Footer() {
                       Animesh
                     </h3>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                  <p className=" text-sm leading-relaxed mb-6">
                     A passionate data enthusiast and skilled Excel developer,
                     dedicated to transforming raw data into meaningful insights
                     with precision and creativity.
@@ -127,7 +128,7 @@ export default function Footer() {
                     <div className="relative w-2 h-2 rounded-full bg-green-500">
                       <div className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-75" />
                     </div>
-                    <span className="text-xs font-medium text-green-700 dark:text-green-300">
+                    <span className="text-xs font-medium text-green-600 ">
                       Available for Classes
                     </span>
                   </div>

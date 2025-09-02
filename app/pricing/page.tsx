@@ -1,4 +1,5 @@
 import Pricing from "@/components/home/PaymentCard";
+import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { Metadata } from "next";
 
 import React from "react";
