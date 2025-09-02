@@ -21,7 +21,7 @@ export default function ProblemTransformation() {
     <Card
       className="
         container mx-auto border-0 shadow-2xl lg:rounded-2xl rounded-none overflow-hidden
-        bg-gradient-to-br from-[#1e3c72] via-[#2a5298] to-[#000000]
+        bg-gradient-to-b from-[#0f2027] to-[#203a43]
         p-12
       "
     >

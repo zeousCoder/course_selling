@@ -30,7 +30,7 @@ export default function ProgramDifference() {
     <Card
       className="
         container mx-auto border-0 shadow-2xl lg:rounded-2xl rounded-none overflow-hidden
-        bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]
+         bg-gradient-to-br from-[#1e3c72] via-[#2a5298] to-[#000000] 
         p-12
       "
     >

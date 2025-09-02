@@ -36,7 +36,7 @@ const whoIsThisForData = [
 export default function WhoIsThisFor() {
     return (
         // Use a <section> for semantic HTML and page-level styling
-        <section className="container rounded-xl py-20 bg-gradient-to-b from-[#0f2027] to-[#203a43]">
+        <section className="container rounded-xl py-20  bg-gradient-to-br from-[#1e3c72] via-[#2a5298] to-[#000000] ">
             <div className="w-full mx-auto text-center px-4">
 
                 {/* Main Header */}
