@@ -32,7 +32,7 @@ export default function ProblemTransformation() {
       </CardHeader>
 
       <CardContent>
-        <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-10  mx-auto">
           {/* The Problem */}
           <div className="text-left">
             <h3 className="text-2xl font-semibold text-red-400 mb-6 flex items-center gap-2">

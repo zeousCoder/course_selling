@@ -44,7 +44,7 @@ export default function ProgramDifference() {
       </CardHeader>
 
       <CardContent>
-        <div className="mt-8 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto text-left">
+        <div className="mt-8 grid gap-8 lg:grid-cols-2  mx-auto text-left">
           {features.map((feature, idx) => {
             const Icon = feature.icon
             return (
