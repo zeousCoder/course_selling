@@ -34,7 +34,7 @@ export default function ProjectsSection() {
     ]
 
     return (
-        <section
+        <Card
             className="
         relative  container rounded-xl mx-auto border-0 shadow-2xl overflow-hidden
         bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]
@@ -48,13 +48,13 @@ export default function ProjectsSection() {
                 <CardTitle className="text-4xl font-bold text-white">
                     Projects You'll Build
                 </CardTitle>
-                <p className="mt-3 text-gray-300 max-w-3xl mx-auto text-lg">
+                <p className="mt-3 text-gray-300  mx-auto text-lg">
                     Apply your learning with real-world, hands-on projects.
                 </p>
             </CardHeader>
 
-            <CardContent className="relative w-full z-10 mt-10">
-                <div className="grid gap-8 grid-cols-1 lg:grid-cols-3 container mx-auto">
+            <section className="relative w-full z-10 mt-10">
+                <div className="grid gap-8 grid-cols-1 lg:grid-cols-3 w-full mx-auto">
                     {projects.map((proj, i) => (
                         <div
                             key={i}
@@ -72,7 +72,7 @@ export default function ProjectsSection() {
                         </div>
                     ))}
                 </div>
-            </CardContent>
-        </section>
+            </section>
+        </Card>
     )
 }
