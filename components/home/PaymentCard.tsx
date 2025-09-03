@@ -58,7 +58,7 @@ export default function Pricing() {
                 Pricing & Enrollment
             </h2> */}
       <h1 className="text-balance text-5xl text-center mb-12 font-bold leading-none tracking-tighter  ">
-        Pricing &
+        Pricing &{" "}
         <LineShadowText className="italic" shadowColor={shadowColor}>
           Enrollment
         </LineShadowText>
