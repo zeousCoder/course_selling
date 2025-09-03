@@ -22,11 +22,7 @@ export default function Footer() {
 
   const isDashboard = pathname.startsWith("/dashboard");
   const socialLinks = [
-    {
-      name: "GitHub",
-      href: "https://github.com/animesh",
-      icon: Github,
-    },
+
     {
       name: "LinkedIn",
       href: "https://linkedin.com/in/animesh",
