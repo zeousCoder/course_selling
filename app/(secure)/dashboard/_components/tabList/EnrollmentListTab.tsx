@@ -202,8 +202,8 @@ export default function EnrollmentListTab() {
                       e.order?.status === "PAID"
                         ? "default"
                         : e.order?.status === "FAILED"
-                          ? "destructive"
-                          : "secondary";
+                        ? "destructive"
+                        : "secondary";
 
                     return (
                       <TableRow key={e.id} className="hover:bg-muted/50">
@@ -211,8 +211,16 @@ export default function EnrollmentListTab() {
                           {e.id.slice(0, 12)}…
                         </TableCell>
                         <TableCell className="hidden md:table-cell">
-                          {e.userId.slice(0, 12)}…
+                          <div className="flex flex-col">
+                            <span className="font-medium">
+                              {e.user?.name ?? "—"}
+                            </span>
+                            <span className="text-sm text-muted-foreground">
+                              {e.user?.email ?? "—"}
+                            </span>
+                          </div>
                         </TableCell>
+
                         <TableCell className="capitalize">{e.plan}</TableCell>
                         <TableCell className="font-mono text-xs">
                           {e.orderId.slice(0, 12)}…
