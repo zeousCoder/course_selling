@@ -65,14 +65,14 @@ export default function EnrollmentListTab() {
     return items.filter((r) => new Date(r.createdAt) >= weekAgo).length;
   }, [items]);
 
-  // derive pages
+
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
   const pageData = useMemo(() => {
     const start = (page - 1) * pageSize;
     return items.slice(start, start + pageSize);
   }, [items, page, pageSize]);
 
-  // simple windowed page links
+
   const pagesToShow = useMemo(() => {
     const maxLinks = 5;
     const half = Math.floor(maxLinks / 2);
