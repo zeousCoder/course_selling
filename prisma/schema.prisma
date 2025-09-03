@@ -152,6 +152,7 @@ model Payment {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  EMI       EMI?
 
   @@map("payments")
 }
@@ -168,4 +169,25 @@ model Enrollment {
 
   @@unique([userId, plan]) // one plan per user
   @@map("enrollments")
+}
+
+model EMI {
+  id        String  @id @default(cuid())
+  paymentId String  @unique
+  payment   Payment @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+
+  durationMonths Int // e.g., 3, 6, 9, 12
+  interestRate   Float? // e.g., 12.5%
+  baseAmount     Int? // per-installment base
+  totalAmount    Int? // total repayable (amount + interest)
+
+  cardIssuer  String? // HDFC, ICICI, etc.
+  cardLast4   String? // last 4 digits
+  cardNetwork String? // VISA, MASTERCARD, etc.
+  cardType    String? // credit, debit
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("emis")
 }
