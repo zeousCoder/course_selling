@@ -18,6 +18,8 @@ import {
   Paperclip,
   DollarSign,
   ListOrdered,
+  LogInIcon,
+  User2,
 } from "lucide-react";
 import { signOut, useSession } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
@@ -29,12 +31,15 @@ import StatsTab from "./tabList/StatsTab";
 import PaymentListTab from "./tabList/PaymentListTab";
 import OrderListTab from "./tabList/OrderListTab";
 import EnrollmentListTab from "./tabList/EnrollmentListTab";
+import LoginDetailsTab from "./tabList/LoginDetailsTab";
+import UserChangeTab from "./tabList/UserChangeTab";
 
 export default function Sidebar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { data: session } = useSession();
   const [isPending, setIsPending] = useState(false);
   const router = useRouter();
+  const isOwner = session?.user.email === "shrey.sadhukhan21@gmail.com";
 
   async function handleClick() {
     await signOut({
@@ -88,12 +93,22 @@ export default function Sidebar() {
       icon: <Projector className="w-4 h-4" />,
       content: <EnrollmentListTab />,
     },
-    // {
-    //     value: "resume",
-    //     label: "Resume Updater",
-    //     icon: <Paperclip className="w-4 h-4" />,
-    //     content: <ResumeUpdateTab />,
-    // },
+    ...(isOwner
+      ? [
+          {
+            value: "login-details",
+            label: "Login Details",
+            icon: <LogInIcon className="w-4 h-4" />,
+            content: <LoginDetailsTab />,
+          },
+          {
+            value: "user-management",
+            label: "User Management",
+            icon: <User2 className="w-4 h-4" />,
+            content: <UserChangeTab />,
+          },
+        ]
+      : []),
   ];
 
   const SidebarContent = ({ onTabChange }: { onTabChange?: () => void }) => (

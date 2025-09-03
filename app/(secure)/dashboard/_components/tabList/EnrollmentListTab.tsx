@@ -54,8 +54,7 @@ export default function EnrollmentListTab() {
   const { items, loadingData, error, refetch, removeEnrollment } =
     useEnrollments();
 
-
-  const [page, setPage] = useState(1); 
+  const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
   const total = items.length;
@@ -65,13 +64,11 @@ export default function EnrollmentListTab() {
     return items.filter((r) => new Date(r.createdAt) >= weekAgo).length;
   }, [items]);
 
-
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
   const pageData = useMemo(() => {
     const start = (page - 1) * pageSize;
     return items.slice(start, start + pageSize);
   }, [items, page, pageSize]);
-
 
   const pagesToShow = useMemo(() => {
     const maxLinks = 5;
@@ -141,13 +138,6 @@ export default function EnrollmentListTab() {
 
       {/* Card with sticky header, scrollable table area, sticky footer */}
       <Card className="h-[80vh] flex flex-col">
-        <CardHeader className="shrink-0">
-          <CardTitle className="flex items-center gap-2">
-            <CreditCard className="w-5 h-5" />
-            Owned Bundles
-          </CardTitle>
-        </CardHeader>
-
         {/* Middle: only this scrolls */}
         <div className="flex-1 overflow-auto">
           {error ? (

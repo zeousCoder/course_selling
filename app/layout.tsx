@@ -39,9 +39,9 @@ export default function RootLayout({
         >
           <Header />
           {children}
-          <div className="hidden lg:block">
+          {/* <div className="hidden lg:block">
             <SmoothCursor />
-          </div>
+          </div> */}
           <Toaster richColors position="top-center" />
           <Footer />
         </ThemeProvider>

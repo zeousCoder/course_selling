@@ -134,13 +134,6 @@ export default function OrderListTab() {
 
       {/* Card with sticky header, scrollable table body, sticky footer */}
       <Card className="h-[80vh] flex flex-col">
-        <CardHeader className="shrink-0">
-          <CardTitle className="flex items-center gap-2">
-            <Receipt className="w-5 h-5" />
-            Recent Orders
-          </CardTitle>
-        </CardHeader>
-
         {/* Middle: scroll container for table ONLY */}
         <div className="flex-1 overflow-auto">
           {error ? (
@@ -258,7 +251,7 @@ export default function OrderListTab() {
                           >
                             {o.status}
                           </Badge>
-                          {lastPayment && (
+                          {/* {lastPayment && (
                             <div className="text-[10px] text-muted-foreground mt-1">
                               Last payment:{" "}
                               {lastPayment[lastPayment.length - 1]?.status}
@@ -270,7 +263,7 @@ export default function OrderListTab() {
                                   }`
                                 : ""}
                             </div>
-                          )}
+                          )} */}
                         </TableCell>
                       </TableRow>
                     );

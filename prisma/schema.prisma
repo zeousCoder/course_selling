@@ -124,6 +124,7 @@ model Order {
   razorpayOrderId String?     @unique
   receipt         String?     @unique
   notes           Json?
+  emailSent       Boolean     @default(false)
   payments        Payment[]
 
   createdAt  DateTime    @default(now())

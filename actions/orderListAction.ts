@@ -7,12 +7,13 @@ export type OrderStatusT = "CREATED" | "PENDING" | "PAID" | "FAILED" | "CANCELED
 
 export type GetOrdersParams = {
   status?: OrderStatusT[];
-  plan?: string[];                 // ["basic","pro","premium"] if normalized
-  q?: string;                      // search id, receipt, user email/name
-  from?: string;                   // ISO
-  to?: string;                     // ISO
-  take?: number;                   // default 200
-  cursor?: { id: string } | null;  // for cursor pagination
+  plan?: string[];                 
+  q?: string;                       
+  from?: string;                
+  to?: string;                   
+  take?: number;                   
+  cursor?: { id: string } | null;  
+
 };
 
 export async function getOrders(params: GetOrdersParams = {}) {

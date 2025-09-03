@@ -100,12 +100,6 @@ export default function PaymentListTab() {
 
       {/* Card with sticky header, scrollable table area, sticky footer */}
       <Card className="h-[80vh] flex flex-col">
-        <CardHeader className="shrink-0">
-          <CardTitle className="flex items-center gap-2">
-            <CreditCard className="w-5 h-5" />
-            Recent Payments
-          </CardTitle>
-        </CardHeader>
 
         {/* Middle: only this scrolls */}
         <div className="flex-1 overflow-auto">
