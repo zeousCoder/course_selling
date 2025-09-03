@@ -54,8 +54,8 @@ export default function EnrollmentListTab() {
   const { items, loadingData, error, refetch, removeEnrollment } =
     useEnrollments();
 
-  // pagination state
-  const [page, setPage] = useState(1); // 1-based
+
+  const [page, setPage] = useState(1); 
   const [pageSize, setPageSize] = useState(10);
 
   const total = items.length;
