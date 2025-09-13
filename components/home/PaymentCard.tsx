@@ -8,19 +8,20 @@ import CheckoutButton from "../RazorpayButton";
 import { usePathname } from "next/navigation";
 
 export default function Pricing() {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
-  const showInPricingPage = pathname.startsWith("/pricing")
+  const showInPricingPage = pathname.startsWith("/pricing");
   const plans = [
     {
       name: "Basic",
       price: "₹9,999",
-      tagline: "Perfect for self-learners",
+      tagline: "Perfect for Learning Core Concepts",
       features: [
-        "Self-paced video lessons",
-        "15 Excel templates",
-        "Community access",
-        "Lifetime access",
+        "Live Classes on Advanced Excel",
+        "Live Classes on Advanced Dashboard",
+        "2 Capsule Series",
+        "Live Projects",
+        "Surprise Q&A Calls",
       ],
       highlight: false,
       button: "Choose Basic",
@@ -62,7 +63,6 @@ export default function Pricing() {
                 Pricing & Enrollment
             </h2> */}
       <div className="flex flex-col mb-12 gap-4 items-center justify-center text-center w-full">
-
         <h1 className="text-balance text-5xl text-center  font-bold leading-none tracking-tighter  ">
           Pricing &{" "}
           <LineShadowText className="italic" shadowColor={shadowColor}>
@@ -74,7 +74,6 @@ export default function Pricing() {
           Whether you’re just starting out or aiming for career transformation,
           we’ve got a plan tailored for you.
         </p>
-
       </div>
       <div className="grid gap-8 lg:grid-cols-3  grid-cols-1 mx-auto">
         {plans.map((plan, idx) => (
@@ -121,9 +120,6 @@ export default function Pricing() {
           </Card>
         ))}
       </div>
-
-
-
     </section>
   );
 }
