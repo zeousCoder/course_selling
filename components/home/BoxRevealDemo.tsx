@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { BoxReveal } from "@/components/magicui/box-reveal";
+import Link from "next/link";
 
 export function BoxRevealDemo() {
   return (
@@ -12,8 +13,8 @@ export function BoxRevealDemo() {
 
       <BoxReveal boxColor={"#5046e6"} duration={0.5}>
         <h2 className="mt-[.5rem] text-[1rem] max-w-2xl w-full text-center">
-          True growth comes from consistent effort and smart learning. ✅ Over
-          95% of our students improve their technical and analytical skills by
+          True growth comes from consistent effort and smart learning. Over 95%
+          of our students improve their technical and analytical skills by
           following the course structure and working on practical projects.
           Follow the course step-by-step, apply what you learn, and keep
           progressing every day.
@@ -36,7 +37,9 @@ export function BoxRevealDemo() {
       </BoxReveal> */}
 
       <BoxReveal boxColor={"#5046e6"} duration={0.5}>
-        <Button className="mt-[1.6rem] bg-[#5046e6]">Explore</Button>
+        <Link href={"/pricing"}>
+          <Button className="mt-[1.6rem] bg-[#5046e6]">Explore</Button>
+        </Link>
       </BoxReveal>
     </div>
   );

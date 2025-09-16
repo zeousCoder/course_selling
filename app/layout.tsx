@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable}antialiased bg-blue-cyan`}
+        className={`${geistSans.variable}antialiased bg-black`}
         suppressHydrationWarning
       >
         <div className="min-h-screen w-full bg-[#0f0f0f] relative text-white">
@@ -44,12 +44,12 @@ export default function RootLayout({
             }}
           />
           {/* Your Content/Components */}
-          <ThemeProvider
+          {/* <ThemeProvider
             attribute="class"
-            defaultTheme="light"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
-          >
+          > */}
             <Header />
             {children}
             {/* <div className="hidden lg:block">
@@ -57,7 +57,7 @@ export default function RootLayout({
             </div> */}
             <Toaster richColors position="top-center" />
             <Footer />
-          </ThemeProvider>
+          {/* </ThemeProvider> */}
         </div>
       </body>
     </html>

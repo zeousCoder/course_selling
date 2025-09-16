@@ -173,7 +173,7 @@ function CheckoutButton({
       <Button
         onClick={start}
         disabled={loading || owned}
-        className="w-full py-6 text-lg font-semibold rounded-full"
+        className="w-full"
       >
         {loading ? "Processing..." : owned ? "Already Purchased" : label}
       </Button>
