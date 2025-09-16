@@ -79,7 +79,6 @@ export default function UserListTab() {
           <Button
             onClick={fetchUsers}
             disabled={loadingData}
-            variant="outline"
             size="sm"
           >
             {loadingData ? (

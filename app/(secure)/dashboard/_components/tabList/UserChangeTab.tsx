@@ -77,7 +77,7 @@ export default function UserChangeTab() {
         </div>
         <div className="flex items-center gap-2">
           <Badge variant="secondary">Total: {items.length}</Badge>
-          <Button onClick={load} variant="outline" size="sm" disabled={loading}>
+          <Button onClick={load} size="sm" disabled={loading}>
             {loading ? (
               <Loader2 className="w-4 h-4 animate-spin mr-2" />
             ) : (
@@ -102,7 +102,7 @@ export default function UserChangeTab() {
               No users found
             </div>
           ) : (
-            <div className="min-w-[800px]">
+            <div className="w-full">
               <Table>
                 <TableHeader className="sticky top-0 bg-background z-10">
                   <TableRow>
@@ -110,7 +110,6 @@ export default function UserChangeTab() {
                     <TableHead>Email</TableHead>
                     <TableHead>Current Role</TableHead>
                     <TableHead className="">Change To</TableHead>
-                    <TableHead className="">Action</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -157,7 +156,6 @@ export default function UserChangeTab() {
                           </Button>
                         </form>
                       </TableCell>
-                      <TableCell />
                     </TableRow>
                   ))}
                 </TableBody>

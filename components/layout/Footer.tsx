@@ -22,7 +22,6 @@ export default function Footer() {
 
   const isDashboard = pathname.startsWith("/dashboard");
   const socialLinks = [
-
     {
       name: "LinkedIn",
       href: "https://linkedin.com/in/animesh",
@@ -72,12 +71,7 @@ export default function Footer() {
                 // Shadows
                 "shadow-2xl shadow-black/10 dark:shadow-black/30",
                 "drop-shadow-lg",
-                // Hover effects
-                "hover:bg-white/25 dark:hover:bg-black/25",
-                "hover:border-white/40 dark:hover:border-white/30",
-                "hover:ring-2 hover:ring-white/30 dark:hover:ring-white/20",
-                "transition-all duration-500 ease-out",
-                // Subtle inner glow
+
                 "before:absolute before:inset-0 before:rounded-3xl",
                 "before:bg-gradient-to-r before:from-transparent before:via-white/5 before:to-transparent",
                 "before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500",
@@ -102,9 +96,7 @@ export default function Footer() {
                         A
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-foreground">
-                      Animesh
-                    </h3>
+                    <h3 className="text-xl font-bold ">Animesh</h3>
                   </div>
                   <p className=" text-sm leading-relaxed mb-6">
                     A passionate data enthusiast and skilled Excel developer,
@@ -132,17 +124,15 @@ export default function Footer() {
 
                 {/* Quick Links */}
                 <div>
-                  <h4 className="text-lg font-semibold text-foreground mb-4">
-                    Quick Links
-                  </h4>
+                  <h4 className="text-lg font-semibold  mb-4">Quick Links</h4>
                   <nav className="space-y-2">
                     {quickLinks.map((link) => (
                       <Link
                         key={link.href}
                         href={link.href}
                         className={cn(
-                          "flex items-center group text-sm text-muted-foreground",
-                          "hover:text-foreground transition-colors duration-200"
+                          "flex items-center group text-sm ",
+                          "hover: transition-colors duration-200"
                         )}
                       >
                         <span className="group-hover:translate-x-1 transition-transform duration-200">
@@ -156,9 +146,7 @@ export default function Footer() {
 
                 {/* Social Links */}
                 <div>
-                  <h4 className="text-lg font-semibold text-foreground mb-4">
-                    Connect
-                  </h4>
+                  <h4 className="text-lg font-semibold  mb-4">Connect</h4>
                   <div className="flex flex-col gap-4">
                     {socialLinks.map((social) => {
                       const Icon = social.icon;
@@ -196,10 +184,11 @@ export default function Footer() {
               {/* Bottom Section */}
               <div className="mt-8 pt-6 border-t border-white/20 dark:border-white/10">
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                  <p className="text-sm text-muted-foreground text-center sm:text-left">
-                    © 2024 Animesh. All rights reserved.
+                  <p className="text-sm text-center sm:text-left">
+                    © {new Date().getFullYear()} Animesh. All rights reserved.
                   </p>
-                  <div className="flex items-center text-sm text-muted-foreground">
+
+                  <div className="flex items-center text-sm ">
                     <span>Made with</span>
                     <Heart className="w-4 h-4 mx-1 text-red-500 fill-red-500 animate-pulse" />
                     <span>in India</span>

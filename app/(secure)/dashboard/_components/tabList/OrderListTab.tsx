@@ -119,7 +119,6 @@ export default function OrderListTab() {
           <Button
             onClick={() => fetchOrders()}
             disabled={loadingData}
-            variant="outline"
             size="sm"
           >
             {loadingData ? (

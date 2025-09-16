@@ -83,15 +83,15 @@ export default function PaymentListTab() {
             <CheckCircle2 className="w-3 h-3" />
             Captured: {captured}
           </Badge>
-          <Badge variant="outline" className="flex items-center gap-1">
+          <Badge className="flex items-center gap-1">
             <XCircle className="w-3 h-3" />
             Failed: {failed}
           </Badge>
-          <Badge variant="outline" className="flex items-center gap-1">
+          <Badge className="flex items-center gap-1">
             <Calendar className="w-3 h-3" />
             New: {recent}
           </Badge>
-          <Button onClick={() => fetchPayments()} disabled={loadingData} variant="outline" size="sm">
+          <Button onClick={() => fetchPayments()} disabled={loadingData} size="sm">
             {loadingData ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <RefreshCw className="w-4 h-4 mr-2" />}
             Refresh
           </Button>

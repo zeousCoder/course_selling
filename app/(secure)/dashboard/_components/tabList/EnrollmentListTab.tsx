@@ -123,7 +123,6 @@ export default function EnrollmentListTab() {
           <Button
             onClick={refetch}
             disabled={loadingData}
-            variant="outline"
             size="sm"
           >
             {loadingData ? (

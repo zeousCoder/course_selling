@@ -1,11 +1,9 @@
-import { auth } from '@/lib/auth';
-import { Metadata } from 'next';
-import { headers } from 'next/headers';
-import { redirect } from 'next/navigation';
-import React from 'react'
-import Sidebar from './_components/Sidebar';
-
-
+import { auth } from "@/lib/auth";
+import { Metadata } from "next";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
+import React from "react";
+import Sidebar from "./_components/Sidebar";
 
 export default async function AdminPage() {
   const headersList = await headers();
@@ -17,7 +15,7 @@ export default async function AdminPage() {
   }
 
   return (
-    <div>
+    <div className="">
       <Sidebar />
     </div>
   );

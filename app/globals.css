@@ -175,7 +175,5 @@
     @apply bg-background text-foreground;
   }
 
-  .bg-blue-cyan {
-    @apply bg-gradient-to-r from-[#a8edea] to-[#fed6e3];
-  }
+ 
 }

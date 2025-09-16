@@ -122,7 +122,6 @@ export default function LoginDetailsTab() {
           <Button
             onClick={fetchSessions}
             disabled={loading}
-            variant="outline"
             size="sm"
           >
             {loading ? (

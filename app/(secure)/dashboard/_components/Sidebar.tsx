@@ -114,7 +114,7 @@ export default function Sidebar() {
   const SidebarContent = ({ onTabChange }: { onTabChange?: () => void }) => (
     <>
       {/* Header */}
-      <div className="p-4 border-b bg-background/95 backdrop-blur flex justify-between">
+      <div className="p-4 border-b  bg-slate-300 flex justify-between">
         <div className="flex items-center justify-between">
           <h1 className="text-lg sm:text-xl font-bold truncate">Dashboard</h1>
         </div>
@@ -124,7 +124,7 @@ export default function Sidebar() {
       </div>
 
       {/* Tabs List */}
-      <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-muted-foreground/20">
+      <div className="flex-1 bg-slate-300 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-muted-foreground/20">
         <TabsList className="flex flex-col h-auto w-full bg-transparent p-2 space-y-1">
           {tabsData.map((tab) => (
             <TabsTrigger
@@ -141,14 +141,14 @@ export default function Sidebar() {
       </div>
 
       {/* User Profile & Logout */}
-      <div className="p-4 border-t bg-background/95 flex gap-1">
+      <div className="p-4 border-t bg-slate-300 text-white flex gap-1">
         <Avatar className="h-8 w-8 ">
           <AvatarImage src={session?.user.image || ""} alt="User" />
           <AvatarFallback>U</AvatarFallback>
         </Avatar>
         <div className="flex-1 text-left min-w-0">
           <p className="text-sm font-medium truncate">{session?.user.name}</p>
-          <p className="text-xs text-muted-foreground truncate">
+          <p className="text-xs truncate">
             {session?.user.email}
           </p>
         </div>
@@ -172,7 +172,7 @@ export default function Sidebar() {
         className="flex w-full flex-row h-full"
       >
         {/* Mobile Header */}
-        <div className="lg:hidden flex items-center justify-between p-4 border-b bg-background w-full absolute top-0 z-50">
+        <div className="lg:hidden flex items-center justify-between p-4 border-b bg-slate-300 w-full absolute top-0 z-50">
           <h1 className="text-lg font-bold">Dashboard</h1>
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
@@ -191,12 +191,12 @@ export default function Sidebar() {
         </div>
 
         {/* Desktop Sidebar */}
-        <aside className="hidden lg:flex w-60 border-r-2 bg-muted/30 flex-col h-full">
+        <aside className="hidden lg:flex w-60 border-r-2  flex-col h-full">
           <SidebarContent />
         </aside>
 
         {/* Content Area */}
-        <section className="flex-1 overflow-auto bg-background pt-16 lg:pt-0">
+        <section className="flex-1 overflow-auto bg-slate-300 pt-16 lg:pt-0">
           {tabsData.map((tab) => (
             <TabsContent
               key={tab.value}

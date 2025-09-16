@@ -69,7 +69,7 @@ export default function Pricing() {
             Enrollment
           </LineShadowText>
         </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+        <p className="text-lg  mb-6">
           Choose the plan that fits your learning style and career goals.
           Whether you’re just starting out or aiming for career transformation,
           we’ve got a plan tailored for you.
