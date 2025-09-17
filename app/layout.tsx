@@ -50,13 +50,13 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           > */}
-            <Header />
-            {children}
-            {/* <div className="hidden lg:block">
+          <Header />
+          {children}
+          {/* <div className="hidden lg:block">
             <SmoothCursor />
             </div> */}
-            <Toaster richColors position="top-center" />
-            <Footer />
+          <Toaster richColors position="top-center" />
+          <Footer />
           {/* </ThemeProvider> */}
         </div>
       </body>

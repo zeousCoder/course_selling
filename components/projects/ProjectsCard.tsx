@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { LucideFileText, Download, ArrowRight, Loader2 } from "lucide-react";
 import { useProjects } from "@/hooks/useProject"; // ✅ import hook
+import ShimmerText from "../ShimmerText";
 
 export default function ProjectsCard() {
   const { projects, fetchProjects, isPending, error } = useProjects();
@@ -24,11 +25,9 @@ export default function ProjectsCard() {
     <section className="container mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-extrabold tracking-tight">
-          <span className="bg-gradient-to-r from-blue-600 to-pink-600 bg-clip-text text-transparent">
-            Featured Projects 🚀
-          </span>
+          <span className="">Featured Projects 🚀</span>
         </h2>
-        <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        <p className="mt-4 text-lg  max-w-2xl mx-auto">
           Explore a showcase of my professional work, highlighting expertise in
           data analytics, business intelligence, and machine learning.
         </p>
@@ -36,16 +35,15 @@ export default function ProjectsCard() {
 
       {isPending ? (
         <div className="flex justify-center items-center py-12">
-          <Loader2 className="w-6 h-6 animate-spin mr-2 text-blue-500" />
           <span className="text-gray-600 dark:text-gray-300">
-            Loading projects...
+            <ShimmerText text="Loading..." />
           </span>
         </div>
       ) : error ? (
         <div className="text-center text-red-600 py-8">{error}</div>
       ) : projects.length === 0 ? (
-        <div className="text-center text-gray-500 py-8">
-          No projects found. Please add one.
+        <div className="text-center  py-8">
+          <ShimmerText text="Comming Soon..." />
         </div>
       ) : (
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
