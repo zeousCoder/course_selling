@@ -52,7 +52,7 @@ professional value.`,
       className="
         relative  container rounded-xl mx-auto border-0 shadow-2xl overflow-hidden
         bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]
-        p-12
+        
       "
     >
       {/* Meteor animation background */}
@@ -67,7 +67,7 @@ professional value.`,
         </p>
       </CardHeader>
 
-      <section className="relative w-full z-10 mt-10">
+      <section className="relative px-4 w-full z-10 mt-10">
         <div className="grid gap-8 grid-cols-1 lg:grid-cols-3 w-full mx-auto">
           {projects.map((proj, i) => (
             <div

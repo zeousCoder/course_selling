@@ -105,7 +105,7 @@ const ReviewCard = ({
 export function MarqueeDemo() {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-      <h1 className="text-5xl font-bold tracking-tight pb-10">
+      <h1 className="text-5xl text-center font-bold tracking-tight pb-10">
         Program Outcome
       </h1>
       <Marquee pauseOnHover className="[--duration:20s]">

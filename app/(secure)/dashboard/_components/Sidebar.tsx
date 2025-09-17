@@ -20,6 +20,7 @@ import {
   ListOrdered,
   LogInIcon,
   User2,
+  LucideProjector,
 } from "lucide-react";
 import { signOut, useSession } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
@@ -33,6 +34,7 @@ import OrderListTab from "./tabList/OrderListTab";
 import EnrollmentListTab from "./tabList/EnrollmentListTab";
 import LoginDetailsTab from "./tabList/LoginDetailsTab";
 import UserChangeTab from "./tabList/UserChangeTab";
+import ProjectListTab from "./tabList/ProjectListTab";
 
 export default function Sidebar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -93,6 +95,12 @@ export default function Sidebar() {
       icon: <Projector className="w-4 h-4" />,
       content: <EnrollmentListTab />,
     },
+    {
+      value: "proejct",
+      label: "project",
+      icon: <LucideProjector className="w-4 h-4" />,
+      content: <ProjectListTab />,
+    },
     ...(isOwner
       ? [
           {
@@ -148,9 +156,7 @@ export default function Sidebar() {
         </Avatar>
         <div className="flex-1 text-left min-w-0">
           <p className="text-sm font-medium truncate">{session?.user.name}</p>
-          <p className="text-xs truncate">
-            {session?.user.email}
-          </p>
+          <p className="text-xs truncate">{session?.user.email}</p>
         </div>
         {/* <ThemeToggle /> */}
         <Button

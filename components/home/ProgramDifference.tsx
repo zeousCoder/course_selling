@@ -31,10 +31,10 @@ export default function ProgramDifference() {
       className="
         container mx-auto border-0 shadow-2xl rounded-2xl overflow-hidden
          bg-gradient-to-br from-[#1e3c72] via-[#2a5298] to-[#000000] 
-        p-12
+        
       "
     >
-      <CardHeader className="text-center space-y-3">
+      <CardHeader className="text-center w-full space-y-3">
         <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-white">
           What Makes This Program <span className="text-yellow-400">Different?</span>
         </h2>

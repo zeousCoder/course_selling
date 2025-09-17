@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { BoxReveal } from "@/components/magicui/box-reveal";
 import Link from "next/link";
+import ShimmerText from "../ShimmerText";
 
 export function BoxRevealDemo() {
   return (

@@ -110,7 +110,7 @@ export default function Pricing() {
           we’ve got a plan tailored for you.
         </p>
       </div>
-      <div className="grid gap-8 lg:grid-cols-3 grid-cols-1 mx-auto">
+      <div className="grid gap-8 lg:grid-cols-3 grid-cols-1 lg:px-0 px-4 mx-auto">
         {plans.map((plan, idx) => (
           <Card
             key={idx}

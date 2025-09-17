@@ -22,7 +22,7 @@ export default function ProblemTransformation() {
       className="
         container mx-auto border-0 shadow-2xl rounded-2xl  overflow-hidden
         bg-gradient-to-b from-[#0f2027] to-[#203a43]
-        p-12
+        
       "
     >
       <CardHeader className="text-center">

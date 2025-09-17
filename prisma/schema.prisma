@@ -192,3 +192,14 @@ model EMI {
 
   @@map("emis")
 }
+
+model Project {
+  id           String   @id @default(cuid())
+  title        String
+  description  String
+  downloadLink String
+  viewDetails  String
+  filesName    String[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
