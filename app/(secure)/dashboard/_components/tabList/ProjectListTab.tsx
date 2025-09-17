@@ -21,6 +21,7 @@ import {
   FileText,
   FileDown,
   PlusCircle,
+  Trash2,
 } from "lucide-react";
 
 import {
@@ -41,10 +42,18 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
 
 export default function ProjectListTab() {
-  const { projects, isPending, error, fetchProjects, createProject, message } =
-    useProjects();
+  const {
+    projects,
+    isPending,
+    error,
+    fetchProjects,
+    createProject,
+    message,
+    removeProject,
+  } = useProjects();
 
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(5);
@@ -230,6 +239,7 @@ export default function ProjectListTab() {
                     </TableHead>
                     <TableHead className="hidden md:table-cell">View</TableHead>
                     <TableHead className="text-right">Download</TableHead>
+                    <TableHead className="text-right">Action</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -276,6 +286,20 @@ export default function ProjectListTab() {
                           ) : (
                             "—"
                           )}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          <Button
+                            variant="destructive"
+                            size="sm"
+                            onClick={() => removeProject(p.id)}
+                            disabled={isPending}
+                          >
+                            {isPending ? (
+                              <Loader2 className="w-4 h-4 animate-spin" />
+                            ) : (
+                              <Trash2 className="w-4 h-4" />
+                            )}
+                          </Button>
                         </TableCell>
                       </TableRow>
                     );

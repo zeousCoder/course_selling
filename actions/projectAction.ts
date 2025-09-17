@@ -1,11 +1,8 @@
 "use server";
 
-
 import cloudinary from "@/lib/cloudinary";
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-
-
 
 export async function postProject(data: FormData) {
   try {
@@ -17,8 +14,16 @@ export async function postProject(data: FormData) {
     const filesNameString = data.get("filesName") as string;
 
     // 1. Input Validation
-    if (!title || !description || !downloadFile || filesNameString.length === 0) {
-      return { success: false, message: "Please provide all required fields and a file." };
+    if (
+      !title ||
+      !description ||
+      !downloadFile ||
+      filesNameString.length === 0
+    ) {
+      return {
+        success: false,
+        message: "Please provide all required fields and a file.",
+      };
     }
 
     // 2. Upload the file to Cloudinary
@@ -43,7 +48,7 @@ export async function postProject(data: FormData) {
     const downloadLink = result.secure_url;
 
     // 3. Prepare the filesName array from the string input
-    const filesName = filesNameString.split(',').map(name => name.trim());
+    const filesName = filesNameString.split(",").map((name) => name.trim());
 
     // 4. Store project details in the database using Prisma
     await prisma.project.create({
@@ -68,13 +73,12 @@ export async function postProject(data: FormData) {
   }
 }
 
-
 export async function getProjects() {
   try {
     // Fetch all projects from the database
     const projects = await prisma.project.findMany({
       orderBy: {
-        createdAt: 'desc', // Sorts projects by the newest first
+        createdAt: "desc", // Sorts projects by the newest first
       },
     });
 
@@ -82,5 +86,23 @@ export async function getProjects() {
   } catch (error) {
     console.error("Failed to fetch projects:", error);
     return { success: false, data: [], message: "Failed to load projects." };
+  }
+}
+
+export async function deleteProjects(id: string) {
+  try {
+    if (!id) {
+      return { success: false, message: "Project ID is required." };
+    }
+    await prisma.project.delete({
+      where: {
+        id: id,
+      },
+    });
+
+    revalidatePath("/projects");
+    return { success: true, message: "Project deleted successfully!" };
+  } catch (error) {
+    console.error("Server Action Error:", error);
   }
 }

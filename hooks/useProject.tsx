@@ -1,7 +1,11 @@
 "use client";
 
 import { useState, useTransition, useCallback, useEffect } from "react";
-import { postProject, getProjects } from "@/actions/projectAction"; // adjust path
+import {
+  postProject,
+  getProjects,
+  deleteProjects,
+} from "@/actions/projectAction"; // adjust path
 
 export function useProjects() {
   const [isPending, startTransition] = useTransition();
@@ -42,6 +46,29 @@ export function useProjects() {
     [fetchProjects]
   );
 
+  const removeProject = useCallback(
+    (id: string) => {
+      setError(null);
+      setMessage(null);
+      startTransition(async () => {
+        try {
+          const res = await deleteProjects(id);
+          if (!res || !res.success) {
+            setError(
+              res?.message || "An error occurred while deleting the project."
+            );
+            return;
+          }
+          setMessage(res.message);
+          fetchProjects(); // refresh list after deletion
+        } catch (err: any) {
+          setError(err.message || "An unexpected error occurred.");
+        }
+      });
+    },
+    [fetchProjects]
+  );
+
   // Auto-load projects on mount
   useEffect(() => {
     fetchProjects();
@@ -54,5 +81,6 @@ export function useProjects() {
     message,
     createProject,
     fetchProjects,
+    removeProject,
   };
 }

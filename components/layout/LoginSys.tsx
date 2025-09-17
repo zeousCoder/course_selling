@@ -35,7 +35,6 @@ export default function LoginSys() {
                     onClick={handleGoogleLogin}
                     disabled={isPending}
                     className="w-full "
-                    variant={"outline"}
                 >
                     Login
                 </Button>
